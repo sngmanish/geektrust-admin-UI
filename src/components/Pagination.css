@@ -1,0 +1,40 @@
+.pagination-area {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.page-no {
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+    margin: 0 0.5rem;
+    border: 1px solid #00a8ff;
+    vertical-align: center;
+    border-radius: 50%;
+    transition: 0.5s;
+    background-color: hsl(200, 100%, 50%);
+    color: #fff;
+}
+
+.page-no.active {
+    cursor: pointer;
+    border: 1px solid hsl(200, 100%, 50%);
+    background-color: #fff;
+    color: hsl(200, 100%, 50%);
+}
+
+.page-no.not-active {
+    cursor: pointer;
+    border: 1px solid #7f8fa6;
+    color: #7f8fa6;
+    background-color: #dcdde1
+}
+
+.page-no .pagination-content {
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+
+}

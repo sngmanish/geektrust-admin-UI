@@ -1,0 +1,30 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.container{
+  margin-top: 3rem;
+  font-family: 'Quicksand', sans-serif;
+}
+.search-box{
+  width: 100%;
+  margin:0.5rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.search-box-container{
+  display: flex;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1rem;
+  border: 1px solid rgb(158, 155, 155);
+}
+
+#table{
+  width: 80%;
+  margin: auto;
+
+}
+
