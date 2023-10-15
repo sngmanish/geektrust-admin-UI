@@ -1,0 +1,10 @@
+td,
+th {
+  padding: 0.8rem 0rem;
+  text-align: left;
+}
+
+th .data {
+  font-weight: 1rem;
+  font-size: 0.9rem;
+}

@@ -4,7 +4,7 @@ th {
   margin: 0;
   padding: 0.2rem;
   border-bottom: 1px solid #e6e6e6;
-  /* text-align: left; */
+  padding-left: 10px;
 }
 
 tr.checked {
