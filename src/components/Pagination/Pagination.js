@@ -19,7 +19,7 @@ const Pagination = ({ page, onChange, count }) => {
 
   return (
     <>
-      <ul className="pagination" >
+      <ul className="pagination">
         <a href="#" onClick={e => onChange(e, 1)}>
           &laquo;
         </a>
