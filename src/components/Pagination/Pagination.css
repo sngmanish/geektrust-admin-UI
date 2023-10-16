@@ -54,12 +54,12 @@
 }
 
 .pagination a.active {
-  background-color: #4caf50;
+  background-color: #fba1b7;
   color: white;
 }
 
 .pagination a:hover:not(.active) {
-  background-color: #ddd;
+  background-color: #ffd1da;
 }
 
 a.disabled {
