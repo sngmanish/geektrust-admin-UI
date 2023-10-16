@@ -1,62 +1,49 @@
-import React from "react";
-import User from "../User/User";
+import React from 'react'
+import User from '../User/User'
 
-import "./Table.css";
+import './Table.css'
 
-const HeaderLabelMap = ["Email", "Name", "Role"];
-
-const Table = ({ handleSelect, handleDeleteClick, handleEdit, dataInPage }) => {
-  const handleTopCheckBox = (e) => {
+const Table = ({ handleSelect, dataInPage, columns }) => {
+  const handleTopCheckBox = e => {
     if (e.target.checked) {
-      dataInPage.map((x) => !x.isChecked && handleSelect(x.id));
+      dataInPage.map(x => !x.isChecked && handleSelect(x.id))
     } else {
-      dataInPage.map((x) => x.isChecked && handleSelect(x.id));
+      dataInPage.map(x => x.isChecked && handleSelect(x.id))
     }
-  };
+  }
 
   return (
     <div
       style={{
-        width: "100%",
-        margin: "auto",
-        height: "calc(100% - 100px )",
-        overflow: "auto",
-        border: "1px solid #afafaf",
-        "border-radius": "8px",
+        width: '100%',
+        margin: 'auto',
+        height: 'calc(100% - 80px)',
+        overflow: 'auto',
+        border: '1px solid #afafaf',
+        'border-radius': '8px'
       }}
     >
-      <table style={{ borderSpacing: "0", width: "100%" }}>
-        <thead
-          style={{ backgroundColor: "#f8f8f8", border: "1px solid #afafaf" }}
-        >
+      <table style={{ borderSpacing: '0', width: '100%' }}>
+        <thead style={{ backgroundColor: '#f8f8f8', border: '1px solid #afafaf' }}>
           <tr>
-            <th style={{ paddingLeft: "20px" }}>
+            <th style={{ paddingLeft: '20px' }}>
               <input type="checkbox" onChange={handleTopCheckBox} />
             </th>
-            {HeaderLabelMap.map((label) => (
-              <th key={label}>
-                <div className="data">{label}</div>
+            {columns.map(column => (
+              <th key={column.field}>
+                <div className="data">{column.headerName}</div>
               </th>
             ))}
-            <th>
-              <div className="data">Actions</div>
-            </th>
           </tr>
         </thead>
         <tbody>
-          {dataInPage.map((user) => (
-            <User
-              key={user.id}
-              row={user}
-              handleSelect={handleSelect}
-              handleDeleteClick={handleDeleteClick}
-              handleEdit={handleEdit}
-            />
+          {dataInPage.map(user => (
+            <User columns={columns} key={user.id} row={user} handleSelect={handleSelect} />
           ))}
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table

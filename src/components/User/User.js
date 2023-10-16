@@ -1,125 +1,27 @@
-import React, { useEffect, useState } from "react";
-import "./User.css";
-import { Icon } from "@iconify/react";
+import React from 'react'
+import './User.css'
 
-const User = ({ row, handleSelect, handleDeleteClick, handleEdit }) => {
-  const orgValue = { ...row };
-  const [editMode, setEditMode] = useState(false);
-  const [newValues, setNewValues] = useState(orgValue);
-
-  const [flag, setFlag] = useState(null);
-  const onEditClick = (id) => setFlag(id);
-
-  const handleUserEdit = (e) => {
-    if (editMode) {
-      const name = e.target.name;
-      const value = e.target.value;
-      setNewValues({ ...newValues, [name]: value });
-    }
-  };
-
-  const handleSave = () => {
-    handleEdit(newValues);
-    setEditMode(false);
-    onEditClick(null);
-  };
-
-  const handleCancel = () => {
-    setNewValues(orgValue);
-    setEditMode(false);
-    onEditClick(null);
-  };
-
-  useEffect(() => {
-    flag === row.id ? setEditMode(true) : setEditMode(false);
-  }, [flag, row.id]);
-
+const User = ({ row, columns, handleSelect }) => {
   return (
     <>
-      <tr className={row.isChecked ? "checked" : ""}>
-        <td style={{ paddingLeft: "20px" }}>
+      <tr className={row.isChecked ? 'checked' : ''}>
+        <td style={{ paddingLeft: '20px' }}>
           <input
             type="checkbox"
             onChange={() => handleSelect(row.id)}
-            checked={row.isChecked ? "checked" : ""}
+            checked={row.isChecked ? 'checked' : ''}
           />
         </td>
-        <td>
-          <div className="employee-row">
-            <input
-              className={`data${row.isChecked ? " checked" : ""}${
-                editMode ? " editable" : " normal"
-              }`}
-              name="name"
-              value={newValues.name}
-              onChange={handleUserEdit}
-            />
-          </div>
-        </td>
-        <td>
-          <div className="employee-row">
-            <input
-              className={`data${row.isChecked ? " checked" : ""}${
-                editMode ? " editable" : " normal"
-              }`}
-              name="email"
-              value={newValues.email}
-              onChange={handleUserEdit}
-            />
-          </div>
-        </td>
-        <td>
-          <div className="employee-row">
-            <input
-              className={`data${row.isChecked ? " checked" : ""}${
-                editMode ? " editable" : " normal"
-              }`}
-              name="role"
-              value={newValues.role}
-              onChange={handleUserEdit}
-            />
-          </div>
-        </td>
-        <td>
-          <div className="actions">
-            {editMode ? (
-              <>
-                <span className="icon" onClick={handleSave}>
-                  <Icon
-                    icon="akar-icons:check-box-fill"
-                    color="#00a8ff"
-                    width="20"
-                  />
-                </span>
-                <span className="icon" onClick={handleCancel}>
-                  <Icon
-                    icon="emojione-monotone:cross-mark-button"
-                    color="red"
-                    width="20"
-                  />
-                </span>
-              </>
-            ) : (
-              <>
-                <span className="icon" onClick={() => onEditClick(row.id)}>
-                  <Icon icon="bx:edit" color="#484848" width="20" />
-                </span>
-                <span
-                  className="icon"
-                  onClick={() => handleDeleteClick(row.id)}
-                >
-                  <Icon
-                    icon="ant-design:delete-twotone"
-                    color="#d11a2a"
-                    width="20"
-                  />
-                </span>
-              </>
-            )}
-          </div>
-        </td>
+
+        {columns.map(col => (
+          <td key={col.id}>
+            <div className="employee-row">
+              <>{col.renderCell && col.renderCell({ row })}</>
+            </div>
+          </td>
+        ))}
       </tr>
     </>
-  );
-};
-export default User;
+  )
+}
+export default User

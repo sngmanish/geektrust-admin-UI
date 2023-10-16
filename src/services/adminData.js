@@ -1,6 +1,6 @@
-import config from "../config";
+import config from '../config'
 export const getAdminUIData = async () => {
-  const response = await fetch(config.endpoint);
-  const data = await response.json();
-  return data;
-};
+  const response = await fetch(config.endpoint)
+  const data = await response.json()
+  return data
+}
