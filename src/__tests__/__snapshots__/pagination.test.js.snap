@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders correctly 1`] = `
+<ul
+  className="pagination"
+>
+  <a
+    className=" disabled"
+    href="#"
+    onClick={[Function]}
+    role="button"
+  >
+    «
+  </a>
+  <a
+    className=" active"
+    href="#"
+    onClick={[Function]}
+    role="button"
+  >
+    1
+  </a>
+  <a
+    className=""
+    href="#"
+    onClick={[Function]}
+    role="button"
+  >
+    2
+  </a>
+  <a
+    className=""
+    href="#"
+    onClick={[Function]}
+    role="button"
+  >
+    3
+  </a>
+  <a
+    className=""
+    href="#"
+    onClick={[Function]}
+    role="button"
+  >
+    4
+  </a>
+  <a
+    className=""
+    href="#"
+    onClick={[Function]}
+    role="button"
+  >
+    5
+  </a>
+  <a
+    className=""
+    href="#"
+    onClick={[Function]}
+    role="button"
+  >
+    »
+  </a>
+</ul>
+`;

@@ -27,7 +27,7 @@ const Table = ({ handleSelect, dataInPage, columns }) => {
         <thead style={{ backgroundColor: '#f8f8f8', border: '1px solid #afafaf' }}>
           <tr>
             <th style={{ paddingLeft: '20px' }}>
-              <input type="checkbox" onChange={handleTopCheckBox} />
+              <input type="checkbox" aria-label="select all rows" onChange={handleTopCheckBox} />
             </th>
             {columns.map(column => (
               <th key={column.field}>

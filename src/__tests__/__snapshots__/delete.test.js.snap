@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteButton renders correctly 1`] = `
+<button
+  disabled="disabled"
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#dcdde1",
+      "border": "1px solid #7f8fa6",
+      "borderRadius": "1rem",
+      "color": "#7f8fa6",
+      "height": "2rem",
+      "outline": "none",
+      "width": "9rem",
+    }
+  }
+>
+  Delete Selected
+</button>
+`;

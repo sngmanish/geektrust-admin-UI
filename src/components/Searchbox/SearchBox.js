@@ -10,6 +10,7 @@ const SearchBox = ({ searchText, setSearchText }) => {
       }}
     >
       <input
+        data-testid="search-box-input"
         name="search"
         value={searchText}
         onChange={event => setSearchText(event.target.value)}

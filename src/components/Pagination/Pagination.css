@@ -61,3 +61,9 @@
 .pagination a:hover:not(.active) {
   background-color: #ddd;
 }
+
+a.disabled {
+  pointer-events: none;
+  color: gray;
+  text-decoration: none;
+}
