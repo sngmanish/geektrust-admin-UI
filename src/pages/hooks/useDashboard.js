@@ -77,7 +77,6 @@ const useDashboard = () => {
       }
       return user
     })
-    console.log(allUser)
     setData(allUser)
   }
 
@@ -98,10 +97,7 @@ const useDashboard = () => {
 
   const [selectedRowId, setSelectedRowId] = useState(null)
 
-  const onEditClick = id => {
-    console.log(id)
-    setSelectedRowId(id)
-  }
+  const onEditClick = id => setSelectedRowId(id)
 
   const [editMode, setEditMode] = useState(false)
 
@@ -110,10 +106,6 @@ const useDashboard = () => {
     () => (filteredData ?? []).find(x => selectedRowId === x.id),
     [filteredData, selectedRowId]
   )
-  useEffect(() => {
-    console.log(rowData)
-  }, [rowData])
-
   const [newValues, setNewValues] = useState(rowData ?? [])
 
   useEffect(() => {

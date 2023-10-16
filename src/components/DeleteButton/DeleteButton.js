@@ -1,7 +1,6 @@
 import React from 'react'
 
 const DeleteButton = ({ anyBoxChecked, handleBatchDelete }) => {
-  console.log({ anyBoxChecked })
   return (
     <button
       style={{
