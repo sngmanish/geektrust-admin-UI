@@ -12,7 +12,7 @@ describe('SearchBox', () => {
   it('updates search text on input change', () => {
     const setSearchText = jest.fn()
     render(<SearchBox searchText="" setSearchText={setSearchText} />)
-    const input = screen.getByTestId('search-box-input')
+    const input = screen.getByTestId('search-box')
     fireEvent.change(input, { target: { value: 'test' } })
     expect(setSearchText).toHaveBeenCalledWith('test')
   })

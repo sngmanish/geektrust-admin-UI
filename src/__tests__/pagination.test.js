@@ -13,11 +13,7 @@ describe('Pagination', () => {
     const onChange = jest.fn()
     render(<Pagination page={1} onChange={onChange} count={10} />)
     const previousButton = screen.getByText('«')
-    //     expect(previousButton).toHaveStyle(`
-    //     pointer-events: none;
-    //     color: gray;
-    //     text-decoration: none;
-    // `)
+
     fireEvent.click(previousButton)
     expect(onChange).toHaveBeenCalled()
   })
@@ -26,13 +22,6 @@ describe('Pagination', () => {
     const onChange = jest.fn()
     render(<Pagination page={10} onChange={onChange} count={10} />)
     const nextButton = screen.getByText('»')
-
-    //     expect(nextButton).toHaveStyle(`
-    //     pointer-events: none;
-    //     color: gray;
-    //     text-decoration: none;
-    //   `)
-
     fireEvent.click(nextButton)
     expect(onChange).toHaveBeenCalled()
   })

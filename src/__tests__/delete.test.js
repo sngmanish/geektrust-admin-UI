@@ -25,7 +25,7 @@ describe('DeleteButton', () => {
     const button = screen.getByText('Delete Selected')
     expect(button).toHaveStyle(`
   border: 2px outset buttonface;
-  background-color: #e74c3c;
+  background-color: #ff6969;
   color: #fff;
 `)
   })

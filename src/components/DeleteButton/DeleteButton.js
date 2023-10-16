@@ -14,7 +14,7 @@ const DeleteButton = ({ anyBoxChecked, handleBatchDelete }) => {
         borderRadius: '1rem',
         ...(anyBoxChecked && {
           border: 'none',
-          backgroundColor: '#e74c3c',
+          backgroundColor: '#FF6969',
           color: '#fff'
         })
       }}

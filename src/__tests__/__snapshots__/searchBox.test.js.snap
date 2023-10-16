@@ -11,7 +11,7 @@ exports[`SearchBox renders correctly 1`] = `
   }
 >
   <input
-    data-testid="search-box-input"
+    data-testid="search-box"
     name="search"
     onChange={[Function]}
     placeholder="Search by name, email or role"
