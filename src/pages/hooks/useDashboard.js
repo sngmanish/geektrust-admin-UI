@@ -25,6 +25,7 @@ const useDashboard = () => {
         )
       })
       .catch(err => {
+        alert('Failed to fetch data')
         console.log(err)
       })
   }, [])
@@ -120,6 +121,24 @@ const useDashboard = () => {
     }
   }
   const handleSave = () => {
+    let regex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/
+    if (!newValues.name || !newValues.email || !newValues.role) {
+      alert('Please fill all the fields')
+      return
+    }
+    if (!regex.test(newValues.email)) {
+      alert('Please enter valid email')
+      return
+    }
+
+    if (newValues.name.length < 3) {
+      alert('Name should be at least 3 characters')
+      return
+    }
+    if (!['admin', 'member'].includes(newValues.role)) {
+      alert('Role should be admin or member')
+      return
+    }
     handleEdit(newValues)
     setEditMode(false)
     onEditClick(null)
@@ -147,8 +166,13 @@ const useDashboard = () => {
                     selectedRowId === params.row.id ? ' editable' : ' normal'
                   }`}
                   name="name"
+                  type="text"
                   value={newValues.name}
                   onChange={handleUserEdit}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter') handleSave()
+                  }}
+                  required
                 />
               ) : (
                 <div className="data">{params.row.name}</div>
@@ -168,9 +192,14 @@ const useDashboard = () => {
                   className={`data${params.row.isChecked ? ' checked' : ''}${
                     selectedRowId === params.row.id ? ' editable' : ' normal'
                   }`}
+                  type="email"
                   name="email"
                   value={newValues.email}
                   onChange={handleUserEdit}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter') handleSave()
+                  }}
+                  required
                 />
               ) : (
                 <div className="data">{params.row.email}</div>
@@ -193,6 +222,10 @@ const useDashboard = () => {
                   name="role"
                   value={newValues.role}
                   onChange={handleUserEdit}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter') handleSave()
+                  }}
+                  required
                 />
               ) : (
                 <div className="data">{params.row.role}</div>
